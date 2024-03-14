@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
   "让UIKit实现SwiftUI一样的实时预览"
                        DESC
 
-  s.homepage         = 'https://github.com/443623074@qq.comg/UIViewPreviewWrapper'
+  s.homepage         = 'https://github.com/SunShineLOL/UIViewPreviewWrapper'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { '443623074@qq.comg' => '443623074@qq.com' }
-  s.source           = { :git => 'https://github.com/443623074@qq.comg/UIViewPreviewWrapper.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/SunShineLOL/UIViewPreviewWrapper.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '13.0'
