@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'UIViewPreviewWrapper'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of UIViewPreviewWrapper.'
+  s.summary          = 'UIKit=>SwiftUI的桥接包装'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  "让UIKit实现SwiftUI一样的实时预览"
                        DESC
 
   s.homepage         = 'https://github.com/443623074@qq.comg/UIViewPreviewWrapper'
@@ -28,7 +28,7 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/443623074@qq.comg/UIViewPreviewWrapper.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '13.0'
 
   s.source_files = 'UIViewPreviewWrapper/Classes/**/*'
   
@@ -37,6 +37,6 @@ TODO: Add long description of the pod here.
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  s.frameworks = 'UIKit', 'SwiftUI'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
