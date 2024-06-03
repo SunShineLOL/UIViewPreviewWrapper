@@ -1,5 +1,5 @@
 PODS:
-  - UIViewPreviewWrapper (0.1.0)
+  - UIViewPreviewWrapper (1.0.0)
 
 DEPENDENCIES:
   - UIViewPreviewWrapper (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  UIViewPreviewWrapper: 295021468022b1ca9fddb91d5dd1db2f587eb196
+  UIViewPreviewWrapper: d3780322dd2de7630d913eda4fa3217150309c3e
 
 PODFILE CHECKSUM: ac55b2cdf7c931d3bc811e511965dea80bc245fe
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.15.2

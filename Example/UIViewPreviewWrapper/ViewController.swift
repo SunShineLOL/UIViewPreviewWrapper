@@ -1,21 +1,23 @@
 //
 //  ViewController.swift
-//  UIViewPreviewWrapper
+//  PreviewWrapper
 //
-//  Created by 443623074@qq.comg on 03/14/2024.
+//  Created by 443623074@qq.comg on 03/13/2024.
 //  Copyright (c) 2024 443623074@qq.comg. All rights reserved.
 //
 
 import UIKit
-import SwiftUI
 import UIViewPreviewWrapper
-/// 演示
+import SwiftUI
+
+// 演示...
 #Preview {
     UIViewControllerPreviewWrapper {
         let vc = ViewController()
         return vc
     }
 }
+
 
 class ViewController: UIViewController {
     lazy var currentView: UIView = {
@@ -28,6 +30,9 @@ class ViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.widthAnchor.constraint(equalToConstant: 300).isActive = true
         view.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        view.addSubview(self.contentLabel)
+        self.contentLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        self.contentLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         return view
     }()
     lazy var desLabel: UILabel = {
@@ -42,13 +47,41 @@ class ViewController: UIViewController {
         view.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         view.textAlignment = .center
         view.translatesAutoresizingMaskIntoConstraints = false
-        
         return view
     }()
+    
+    lazy var contentLabel: UILabel = {
+        let view = UILabel()
+        view.textAlignment = .center
+        let attr: [NSAttributedString.Key: Any] = [.strokeColor: UIColor.black,
+                                                   .foregroundColor: UIColor.white,
+                                                   .strokeWidth: -0.5]
+        view.attributedText = NSAttributedString(string: "请轻触屏幕", attributes: attr)
+        view.font = .systemFont(ofSize: 30)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    var model = Model()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        /// 修改label文字=>界面同步修改
         self.desLabel.text = "点击屏幕更改卡片的颜色/形状"
+        let tap = UITapGestureRecognizer()
+        tap.addTarget(self, action: #selector(touchView(tap:)))
+        view.addGestureRecognizer(tap)
+        model.title = "123"
+        model.num = 321
+    }
+    
+    
+    @objc func touchView(tap: UIGestureRecognizer) {
+        model.num = model.num + 1
+        let num = model.num
+        self.desLabel.text = "model.num+=1\n\(num)"
+        self.navigationItem.title = model.title
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,5 +109,4 @@ extension UIColor {
         return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
     }
 }
-
 
